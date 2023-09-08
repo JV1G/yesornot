@@ -1,0 +1,24 @@
+{
+  "name": "yesornot",
+  "version": "1.0.0",
+  "description": "Project YesOrNot is a post liking (or not) website designed to filter out bad posts from good posts. The specific details and capabilities of the project are currently proprietary.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JV1G/yesornot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JV1G/yesornot/issues"
+  },
+  "homepage": "https://github.com/JV1G/yesornot#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
+  }
+}
