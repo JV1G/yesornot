@@ -262,6 +262,7 @@ footer .right-side .footer-navigation {
     padding: 1rem;
     border: 1px solid #ddd; 
     margin: 1rem 0;
+    min-height: 400px;
 }
 
 .redpill-info, .redpill-actions {

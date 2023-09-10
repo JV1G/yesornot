@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
     <script src="/js/interactivity.js" defer></script>
+    <script src="/js/pill.js" defer></script>
 </head>
 <body>
     <div class="site-container">
@@ -35,51 +36,54 @@
                     <h2><i class="fa-solid fa-pills"></i> Rate the pill</h2>
                     <p>Express what you think about this redpill.</p>
                 </div>
-                <div class="redpill">
-                    <div class="redpill-info">
-                        <div class="redpill-info-left">
-                            <h3 class="redpill-info-title">Title of this redpill</h3>
-                            <p class="redpill-info-author">by <span class="author">Anonymous</span></p>
-                            <p class="redpill-info-country">from <span class="country">USA</span></p>
-                            <p class="redpill-info-upvotes">is <span class="redpilled">0 redpilled</span></p>
-                        </div>
-                        <div class="redpill-info-right">
-                            <p class="redpill-info-date">Wed 30th Sep 2023 16:19:01</p>
-                            <p class="redpill-info-id">No. 22785073</p>
-                        </div>
-                    </div>
-                    <div class="redpill-content">
-                        <div class="redpill-image-container">
-                            <div class="redpill-image">
-                                <img src="/imgs/placeholder-img.jpg" alt="A placeholder image">
+                <div id="rate-pill-container"> <!--This is where the redpill(s) to rate go-->
+                    <div class="redpill">
+                        <div class="redpill-info">
+                            <div class="redpill-info-left">
+                                <h3 class="redpill-info-title">Title of this redpill</h3>
+                                <p class="redpill-info-author">by <span class="author">Anonymous</span></p>
+                                <p class="redpill-info-country">from <span class="country">USA</span></p>
+                                <p class="redpill-info-upvotes">is <span class="redpilled">0 redpilled</span></p>
                             </div>
-                            <div class="redpill-image-data-container">
-                                <p class="image-size">71 KB</p>
-                                <p class="image-type">JPG</p>
-                                <p class="image-res">300x300</p>
+                            <div class="redpill-info-right">
+                                <p class="redpill-info-date">Wed 30th Sep 2023 16:19:01</p>
+                                <p class="redpill-info-id">No. 22785073</p>
                             </div>
                         </div>
-                        <div class="redpill-message">
-                            <p>Some messmewow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, ssage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much 
-                                wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much  wow, muchmuch </p>
-                        </div>
-                        <div class="redpill-message-data">
-                            <div class="counter-container">
-                                <p class="word-count">0 words</p>
-                                <p class="char-count">0/2000 letters</p>
+                        <div class="redpill-content">
+                            <div class="redpill-image-container">
+                                <div class="redpill-image">
+                                    <img src="/imgs/placeholder-img.jpg" alt="A placeholder image">
+                                </div>
+                                <div class="redpill-image-data-container">
+                                    <p class="image-size">71 KB</p>
+                                    <p class="image-type">JPG</p>
+                                    <p class="image-res">300x300</p>
+                                </div>
+                            </div>
+                            <div class="redpill-message">
+                                <p>Some messmewow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, wow, much wowmessage, this is a redpill, wow, much wowage, ssage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much 
+                                    wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much wowmessage, this is a redpill, wow, much  wow, muchmuch </p>
+                            </div>
+                            <div class="redpill-message-data">
+                                <div class="counter-container">
+                                    <p class="word-count">0 words</p>
+                                    <p class="char-count">0/2000 letters</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="redpill-actions">
-                        <h4>What do you think about this redpill?</h4>
-                        <div class="redpill-actions-buttons">
-                            <button><i class="fa-regular fa-comment"></i>Comments</button>
-                            <span class="bluepilled"><button><i class="fa-solid fa-pills"></i>Bluepilled</button></span>
-                            <span class="redpilled"><button><i class="fa-solid fa-pills"></i>Redpilled</button></span>
-                            <button><i class="fa-solid fa-share"></i>Share</button>
+                        <div class="redpill-actions">
+                            <h4>What do you think about this redpill?</h4>
+                            <div class="redpill-actions-buttons">
+                                <button><i class="fa-regular fa-comment"></i>Comments</button>
+                                <span class="bluepilled"><button><i class="fa-solid fa-pills"></i>Bluepilled</button></span>
+                                <span class="redpilled"><button><i class="fa-solid fa-pills"></i>Redpilled</button></span>
+                                <button><i class="fa-solid fa-share"></i>Share</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </main>
         <footer>

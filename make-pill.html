@@ -36,18 +36,18 @@
                     <p>Write something absolutely based and and click 'Produce'.</p>
                 </div>
                 <div class="redpill">
-                    <form action="#">
+                    <form action="http://localhost:3000/make-pill" method="post" enctype="multipart/form-data">
                         <div class="form-row">
                             <label for="pill-title" class="sr-only">Pill title</label>
-                            <input type="text" id="pill-title" placeholder="Enter the title" name="pill-title" required>
+                            <input type="text" maxlength = "32" id="pill-title" placeholder="Enter the title" name="pill-title" required>
                         </div>
                         <div class="form-row">
                             <label for="pill-author" class="sr-only">Pill author</label>
-                            <input type="text" id="pill-author" placeholder="Anonymous" name="pill-author">
+                            <input type="text" maxlength = "24" id="pill-author" placeholder="Anonymous" name="pill-author">
                         </div>
                         <div class="form-row">
                             <label for="pill-text" class="sr-only">Pill text</label>
-                            <textarea id="pill-text" placeholder="💊 Enter your pill's text here" cols="30" rows="10" name="pill-text" required></textarea>
+                            <textarea id="pill-text" maxlength = "2000" placeholder="💊 Enter your pill's text here" cols="30" rows="10" name="pill-text" required></textarea>
                         </div>
                         <div class="form-row">
                             <label for="pill-image">Choose an image:</label>
