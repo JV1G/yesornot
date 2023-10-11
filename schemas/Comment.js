@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
-const commentSchema = require('./Comment');
 
-const pillSchema = new mongoose.Schema({
-    title: {
-        type: String
-    },
+const commentSchema = new mongoose.Schema({
     author: {
         type: String
     },
@@ -14,15 +10,7 @@ const pillSchema = new mongoose.Schema({
     country: {
         type: String
     },
-    redpilledCount: {
-        type: Number,
-        default: 1
-    },
-    bluepilledCount: {
-        type: Number,
-        default: 1
-    },
-    pillId: {
+    commentId: {
         type: Number
     },
     imagePath: { 
@@ -37,11 +25,10 @@ const pillSchema = new mongoose.Schema({
     imageResolution: {
         type: String
     },
-    comments: [commentSchema],
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = pillSchema;
+module.exports = commentSchema;

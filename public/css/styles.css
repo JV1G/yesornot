@@ -8,7 +8,7 @@
     --menu-bg-color: #2C2C2C;
 
 
-    --primary-text-color: #000;
+    --primary-text-color: #fff;
 
     --link-text-hover-special-color: #D32F2F;
     --link-text-color: #fff;
@@ -20,6 +20,46 @@
     --footer-icon-color: #cdc4c4;
 
     --image-data-container-text: var(--footer-text-color);
+
+
+    --author-text-color: #EADCA6;
+    --title-text-color: var(--author-text-color);
+
+    --document-bg-color: #2E2E2E;
+    --document-border-color: #1a1a1a;
+    --document-header-bg-color: #2E2E2E;
+    --document-footer-bg-color: #262626;
+    --comment-bg-color: #3b3b3b;
+    --comment-header-bg-color: #3b3b3b;
+    --comment-text-color: #fff;
+
+    --body-bg-color: #1A1A1A;
+
+
+    --redpill-info-extras-color: #ffffffd3;
+
+    --image-name-color: #ffffffd3;
+    --image-name-hover-color: var(--link-hover-color);
+    --link-color: #FF6B6B;
+    --link-hover-color: #FF8E8E;
+
+    --redpill-info-id-color: var(--author-text-color);
+    --redpill-info-id-hover-color: var(--image-name-hover-color);
+
+    --greentext-color: #9ccc23; 
+    /*--greentext-color: #789922;*/
+
+    --redpill-message-data-color: var(--author-text-color);
+
+    --actions-text-color: var(--primary-text-color);
+
+    --error-bg-layer-color: 46, 46, 46;
+
+    --secondary-list-item-color: #b4b0b0;
+
+    --button-background-color: #000;
+    --button-hover-bg-color: var(--red-title-color);
+    --button-text-color: #fff;
 }
 
 /* Base document settings */
@@ -40,7 +80,7 @@ html {
 
 /* Global styles */
 ::-webkit-scrollbar {
-    width: 0.6rem; 
+    width: 0.6rem;
     background-color: var(--red-title-color);
 }
 ::-webkit-scrollbar-thumb {
@@ -56,11 +96,16 @@ html {
     min-height: 100vh;
 }
 main {
+    font-size: 1rem;
     flex: 1;
 }
 body {
     color: var(--primary-text-color);
-    background-color: var(--soft-white);
+    background-color: var(--body-bg-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 a {
     text-decoration: none;
@@ -97,6 +142,9 @@ button:hover {
 .title-blue {
     color: var(--blue-title-color);
 }
+.greentext {
+    color: var(--greentext-color);
+}
 /* Title styles end */
 
 
@@ -104,12 +152,52 @@ button:hover {
 .content-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 1rem;
+    padding: 0rem 1rem;
 }
+.error-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    height: 300px;
+    background: linear-gradient(
+        rgba(var(--error-bg-layer-color, 46, 46, 46), 0.98), 
+        rgba(var(--error-bg-layer-color, 46, 46, 46), 0.98)
+    ), 
+    url(../imgs/desert.jpg);    background-size: cover;
+    background-position: center;
+    margin-bottom: 0.1rem;
+}
+
+.error-msg {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.error-msg i {
+    font-size: 42px;
+    color: white;
+    color: #A67B5B;
+}
+
 .about-content {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--document-bg-color);
+    margin-bottom: 0.1rem;
+}
+.about-content p { font-size: 1.2rem; height: 100%; display: flex; align-items: center; padding: 1rem 1rem; }
+.about-content h1 { font-size: 1.5rem; width: 100%; height: 100%; background-color: var(--red-title-color); padding: 0 1rem; }
+.about-content h2 { width: 100%; height: 100%; background-color: var(--red-title-color); padding: 0 1rem; }
+
+.comments-pill-container .about-content {
+    margin-bottom: 0.3rem;
 }
 /* Content wrapper end */
 
@@ -256,100 +344,467 @@ footer .right-side .footer-navigation {
 /* Footer end */
 
 
+/* Redpill search*/
+.options-container {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    flex: 1;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: var(--document-bg-color);
+}
+
+.options-container button:hover {
+    color: var(----btn-text-hover-color);
+}
+.options-container i, .search-btn {
+    font-size: 1.1rem;
+}
+.search-input-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: none;
+    flex: 1;
+    padding: 0 1rem;
+}
+.search-input {
+    flex: 1;
+    background-color: var(--document-bg-color);
+    color: var(--primary-text-color);
+    border: none;
+    height: 100%;
+    outline: none;
+  
+    font-size: 1.1rem;
+    overflow: hidden;       
+}
+.search-btn {
+    background-color: var(--document-bg-color);
+    border: none;
+    cursor: pointer;
+    height: 100%;
+}
+.filter {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: var(--document-bg-color);
+    padding: 0 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    height: 100%;
+    border-left: none;
+    border-bottom: none;
+}
+.filter-buttons i {
+    margin-left: 5px; 
+}
+
+.filter-btn {
+    border: none;
+    background-color: var(--document-bg-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.filter-btn span {
+    font-size: 1.1rem;
+}
+/* Redpill search end*/
+
+/* Bottom controls*/
+.bottom-controls {
+    background-color: var(--document-bg-color);
+    display: flex;
+    flex: 1;
+    height: 42px;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+.bottom-controls-icon {
+    font-size: 1.3rem;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    color: var(--author-text-color);
+}
+.pagination, .bottom-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+}
+.pagination nav, .bottom-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.pagination nav ul,  .bottom-nav nav ul {
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.pagination nav ul li,  .bottom-nav nav ul li, .bottom-controls .bottom-nav button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    transition: background-color 0.3s;
+    height:100%;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    background-color: var(--document-bg-color);
+}
+.current-page {
+    color: var(--author-text-color);
+}
+.bottom-controls .bottom-nav button {
+    border: none;
+    padding: 0;
+    color: var(--primary-text-color);
+}
+
+.pagination nav ul li:hover, .bottom-controls .bottom-nav button:hover {
+    color: var(--link-hover-color);
+}
+.bottom-nav nav ul li a {
+    transition: 0.3s;
+}
+.bottom-nav nav ul li a:hover {
+    color: var(--link-hover-color);
+}
+.bottom-controls select {
+    border-radius: 5px;
+    appearance: none; 
+    height: 100%;
+    outline: none;
+    border: none;
+    color: var(--primary-text-color);
+    background-color: var(--document-bg-color);
+    font-size: 1.1rem;
+    color: var(--author-text-color);
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* Bottom controls end*/
+.bottom-controls select:hover {
+    color: var(--link-hover-color);
+}
+
 /* Redpill */
+.rate-pill-container {
+    /*padding: 1rem 0;*/
+}
+
+.side-redpill-bar1 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    left: 0;
+    top: 0;
+}
+.side-redpill-bar2 {
+    display: flex;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+.side-redpill-bar3 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    right: 0;
+    top: 0;
+}
+
+.side-like-bar, .side-dislike-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.05rem 0;
+}
+
+.side-like-bar {
+    background-color: var(--red-title-color);
+}
+
+.side-dislike-bar {
+    background-color: var(--blue-title-color);
+}
+
+
+
+
+
+
+
+
+
+
+.redpill-bar {
+    display: flex;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.like-bar, .dislike-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.05rem 0;
+}
+
+.like-bar i, .dislike-bar i {
+    margin-right: 5px; 
+}
+
+.like-bar {
+    background-color: var(--red-title-color);
+}
+
+.dislike-bar {
+    background-color: var(--blue-title-color);
+}
+
 .redpill {
     display: block; 
     padding: 1rem;
-    border: 1px solid #ddd; 
-    margin: 1rem 0;
-    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    /*background-color: var(--white-title-color);*/
+    background-color: var(--document-bg-color);
+    /*border: 1px solid var(--document-footer-bg-color);*/
+    position: relative;
 }
 
-.redpill-info, .redpill-actions {
-    background-color: #f9f9f9; 
+.comments-pill-container .redpill  {
+    /*background-color: #f9f9f9;*/
+    color: var(--comment-text-color);
+    background-color: var(--comment-bg-color);
+    /*margin-bottom: 0.6rem;*/
+}
+.comments-pill-container .redpill, .redpill-actions, .options-container {
+    margin-bottom: 0.1rem;
+}
+
+.comments-pill-container .redpill .redpill-info  {
+    background-color: var(--comment-header-bg-color);
+}
+
+.redpill-info {
+    /*background-color: #f9f9f9;*/
+    padding: 0;
+}
+.redpill-actions {
     padding: 1rem;
-    border-radius: 4px; 
+}
+.redpill-info {
+    background-color: var(--document-header-bg-color);
+}
+.redpill-actions {
+    background-color: var(--document-footer-bg-color);
 }
 
+.comments-pill-container .redpill-info {
+    padding: 0;
+}
+.redpill-info-author {
+    color: var(--redpill-info-extras-color);
+    margin-right: 0.3rem;
+}
 .author {
-    color: var(--red-title-color);
+    color: var(--author-text-color);
 }
-.country {
-    color: var(--red-title-color); /* Until flags are added */
+.redpill-info-title {
+    color: var(--title-text-color);
 }
+.redpill-info-title, .redpill-info-date, .redpill-info-country {
+    margin-right: 0.3rem;
+}
+
+
+
 span.redpilled button, .redpilled{
     color: var(--red-title-color);
 }
 span.bluepilled button, .bluepilled {
     color: var(--blue-title-color);
 }
+.newpilled {
+    color: var(--author-text-color);
+}
 
 .redpill-info {
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
     flex-wrap: wrap;
+    align-items: center;
 }
-.redpill-info-right {
-    margin-left: auto;
-    color: var(--footer-text-color);
-}
+
 .redpill-info-left, .redpill-info-right {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
 }
 .redpill-info-left {
-    gap: 0.3rem;
+    align-items: center;
+    flex: 1;  
+    max-width: 90%;  
+}
 }
 .redpill-info-right {
-    gap: 0.6rem;
+    flex:1;
+    margin-left: auto;
+}
+
+.redpill-info-id a {
+    color: var(--redpill-info-id-color);
+}
+.redpill-info-id a:hover {
+    color: var(--redpill-info-id-hover-color);
+}
+.redpill-info-right {
+    color: var(--redpill-info-extras-color);
+}
+
+.comments-pill-container .redpill-info-right {
+    margin-left: 0.3rem;
+}
+
+.image-name {
+    white-space: nowrap;     
+    overflow: hidden;       
+    text-overflow: ellipsis; 
+    display: block;
+    max-width: 50%;
+    color: var(--image-name-color);
+}
+.image-name:hover {
+    text-decoration: underline;
+    color: var(--image-name-hover-color);
 }
 
 .redpill-actions {
     display: flex;
     flex-direction: row;
-    gap: 0.3rem;
-    margin-top: 1rem;
+    gap: 0.6rem;
     align-items: center;
     font-size: 1.3rem;
     flex-wrap: wrap;
 }
 
 .redpill-content {
+    position: relative;
+    padding-bottom: 1.5rem;
     align-items: flex-start; 
+
+    opacity: 0;
+    transition: opacity 1s;
+}
+.redpill-content.loaded {
+    opacity: 1;
+}
+
+.comments-pill-container .redpill-content {
+    padding-bottom: 0;
 }
 
 .redpill-image-container {
     float: left;
-    margin-right: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    margin-right: 0.8rem;
 }
 
+.no-float {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 1rem;
+}
+
+.redpill-image img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+.redpill-image:hover {
+    cursor: pointer;
+}
 .redpill-image img.landscape {
-    max-width: 400px;
-    max-height: 300px;
+    max-width: 300px;
+    max-height: 200px;
 }
 .redpill-image img.portrait {
-    max-width: 200px; 
+    max-width: 300px; 
     max-height: 400px;
+}
+.comments-pill-container .redpill-image img.landscape {
+    max-width: 200px;
+    max-height: 100px;
+}
+.comments-pill-container .redpill-image img.portrait {
+    max-width: 150px; 
+    max-height: 250px;
 }
 .redpill-image-data-container {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    color: var(--image-data-container-text);
+    color: var(--redpill-info-extras-color);
     font-size: 0.9rem;
+    gap: 0.3rem;
+    margin-bottom: 0.3rem;
 }
+
+.redpill-message {
+    padding: 0.8rem;
+}
+
+.redpill-message p {
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+.redpill-message a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.redpill-message a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
 .redpill-message-data {
     display: flex;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0; 
 }
+
 .redpill-message-data .counter-container {
     display: flex;
     margin-left: auto;
-    color: var(--footer-text-color);
+    color: var(--redpill-message-data-color);
     gap: 1rem;
 }
 
@@ -359,8 +814,8 @@ span.bluepilled button, .bluepilled {
     margin-left: auto;
     gap: 2rem;
     flex-wrap: wrap;
-
 }
+
 .redpill-actions-buttons button {
     display: flex;
     gap: 0.5rem;
@@ -369,8 +824,49 @@ span.bluepilled button, .bluepilled {
     background: none;
     font-size: 1.3rem;
     padding: 0;
-    color: var(--primary-text-color);
+    color: var(--actions-text-color);
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9999; 
+}
+
+#my-modal .redpill {
+    background-color: var(--document-bg-color);
+    margin: 15% auto;
+    border: 1px solid #888;
+    width: 450px;
+    padding-top: 0;
+}
+
+.modal-info {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 0.5rem 0;
+    font-weight: bold;
+}
+
+.fa-x {
+    color: var(--red-title-color);
+}
+.fa-x:hover {
+    color: var(--link-text-hover-special-color);
+}
+
+#close-modal-btn {
+    color: #aaaaaa;
+    float: right;
+    cursor: pointer;
+}
+
 /* Redpill end */
 
 /* Redpill form */
@@ -378,7 +874,8 @@ span.bluepilled button, .bluepilled {
 form {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.5rem;
+    padding: 0 1rem;
 }
 .form-row {
     display: flex;
@@ -403,10 +900,13 @@ form {
     width: 100%; 
     padding: 0.5rem;
     border: 1px solid #ddd; 
-    border-radius: 4px;
     color: var(--primary-text-color);
+    background-color: var(--document-bg-color);
     font-size: 1rem;
     transition: border-color 0.3s;
+}
+.form-row input[type="file"] {
+    margin: 0.5rem 0;
 }
 
 .form-row input[type="text"]:focus, 
@@ -420,16 +920,63 @@ form {
 }
 
 .form-row button[type="submit"] {
-    background-color: var(--site-header-bg-color);
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
     border: none;
     width: 100%;
     font-weight: bold;
     cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.3s;
 }
 .form-row button[type="submit"]:hover {
-    color: var(--btn-text-hover-color);
+    background-color: var(--button-hover-bg-color);
 }
 /* Redpill form end*/
+
+/* Info container */
+
+.info-container {
+    background-color: var(--document-bg-color);
+    padding: 1rem 0;
+}
+.info-row {
+    margin-bottom: 1rem;
+}
+.info-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+}
+.info-container ol {
+    margin-bottom: 1rem;
+    padding: 0 3rem;
+}
+.info-container ul {
+    padding: 0 1rem;
+}
+.info-container ol li {
+    list-style-type: decimal;
+}
+.info-container ul li {
+    list-style-type: lower-latin;
+    color: var(--secondary-list-item-color);
+}
+.info-container ol li, .info-container ul li, .info-container p {
+    margin-bottom: 0.3rem;
+}
+.info-container p, .info-container h2 {
+    padding: 0 1rem;
+}
+.text-emphasis-line {
+    display: inline-block;
+    display: inline-block;
+    border-bottom: 0.4rem solid var(--red-title-color);
+}
+.crypto-address-text {
+    color: var(--red-title-color);
+}
+/* Info container end */
 
 /* Cards */
 .cards {
@@ -437,10 +984,12 @@ form {
     flex-wrap: wrap;
     justify-content: center;
     gap: 5rem;
+    background-color: var(--document-bg-color);
+    padding: 2rem 0;
 }
 .card {
     display: flex;
-    padding: 2rem 1rem;
+    padding: 0rem 0.5rem;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -468,14 +1017,6 @@ form {
 /* Cards end*/
 
 /* Thoughts container */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    line-height: 1.6;
-}
-
 .content-section h2 {
     padding-bottom: 0.3rem;
 }
@@ -555,7 +1096,66 @@ body {
 /* Thoughts container end*/
 
 /* Media queries */
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 1300px) {
+    .redpill-info-left, .redpill-info-right {
+        width: 100%;
+    }
+    .redpill-actions-buttons {
+        width: 100%;
+    }
+    .comments-pill-container .redpill-info-right {
+        margin-left: 0;
+    }
+}
+@media only screen and (max-width: 840px) {
+    .redpill-image img.landscape {
+        max-width: 300px;
+        max-height: 200px;
+    }
+    .redpill-image img.portrait {
+        max-width: 200px; 
+        max-height: 300px;
+    }
+    .span-hide {
+        display: none;
+    }
+    .filter-buttons i {
+        margin-left: 0; 
+    }
+    .redpill-actions-buttons {
+        width: 100%;
+        justify-content: center;
+        gap: 4rem;
+    }
+    .redpill-actions-buttons i {
+        font-size: 1.6rem;
+    }
+}
+@media only screen and (max-width: 740px) {
+    .redpill-image img.landscape {
+        max-width: 100%;
+        max-height: 50%
+    }
+    .redpill-image img.portrait {
+        max-width: 100%; 
+        max-height: 100%;
+    }
+    .redpill-image-container.pill-image {
+        float: none;
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .comments-pill-container .redpill-image img.landscape {
+        max-width: 200px;
+        max-height: 100px;
+    }
+    .comments-pill-container .redpill-image img.portrait {
+        max-width: 200px; 
+        max-height: 300px;
+    }
+
     footer .content-container {
         display: flex;
         flex-direction: column-reverse;
@@ -573,15 +1173,10 @@ body {
     .footer-disclaimer {
         text-align: center;
     }
-    .redpill-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 0.5rem;
-    }
     .redpill-info-right {
         gap: 0.3rem;
+    }
+    .redpill-info {
     }
 }
 @media only screen and (min-width: 920px) {

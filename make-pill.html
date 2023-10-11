@@ -16,8 +16,8 @@
                 <div class="header-right-side"> 
                     <nav role="navigation" aria-label="Main navigation" class="header-nav">
                         <ul>
-                            <li><a href="http://localhost:3000/rate-pill"><i class="fa-solid fa-pills"></i>Pill It</a></li>
-                            <li><a href="http://localhost:3000/browse-redpills"><i class="fa-solid fa-fire"></i>Browse Redpills</a></li>
+                            <li><a href="http://localhost:3000/pill-it"><i class="fa-solid fa-pills"></i>Pill It</a></li>
+                            <li><a href="http://localhost:3000/pills"><i class="fa-solid fa-fire"></i>Browse Redpills</a></li>
                             <li><a href="http://localhost:3000/help"><i class="fa-solid fa-question"></i>Help</a></li>
                             <li><a href="#"><i class="fa-regular fa-address-book"></i>Contact</a></li>
                         </ul>
@@ -32,18 +32,18 @@
         <main>
             <div class="content-container">
                 <div class="about-content">
-                    <h2><i class="fa-solid fa-industry"></i> Produce a pill</h2>
+                    <h1><i class="fa-solid fa-industry"></i> Produce a pill</h1>
                     <p>Write something absolutely based and and click 'Produce'.</p>
                 </div>
                 <div class="redpill">
                     <form action="http://localhost:3000/make-pill" method="post" enctype="multipart/form-data">
                         <div class="form-row">
                             <label for="pill-title" class="sr-only">Pill title</label>
-                            <input type="text" maxlength = "32" id="pill-title" placeholder="Enter the title" name="pill-title" required>
+                            <input type="text" maxlength = "64" id="pill-title" placeholder="Enter the title" name="pill-title" required>
                         </div>
                         <div class="form-row">
                             <label for="pill-author" class="sr-only">Pill author</label>
-                            <input type="text" maxlength = "24" id="pill-author" placeholder="Anonymous" name="pill-author">
+                            <input type="text" maxlength = "64" id="pill-author" placeholder="Anonymous" name="pill-author">
                         </div>
                         <div class="form-row">
                             <label for="pill-text" class="sr-only">Pill text</label>
@@ -64,28 +64,28 @@
                     <h2><i class="fa-solid fa-pills"></i> Example of a pill</h2>
                     <p>This is just an example to show what form your pill will take after you produce a pill.</p>
                 </div>
-                <div class="redpill">
-                    <div class="redpill-info">
-                        <div class="redpill-info-left">
-                            <h3 class="redpill-info-title">Title of this redpill</h3>
-                            <p class="redpill-info-author">by <span class="author">Anonymous</span></p>
-                            <p class="redpill-info-country">from <span class="country">USA</span></p>
-                            <p class="redpill-info-upvotes">is <span class="redpilled">0 redpilled</span></p>
-                        </div>
-                        <div class="redpill-info-right">
-                            <p class="redpill-info-date">Wed 30th Sep 2023 16:19:01</p>
-                            <p class="redpill-info-id">No. 22785073</p>
-                        </div>
-                    </div>
+                <div id="redpill" class="redpill">
                     <div class="redpill-content">
+                        <div class="redpill-image-data-container">
+                            <p class="image-name">Image name</p>
+                            <p class="image-size">71 KB</p>
+                            <p class="image-res">300x300</p>
+                        </div>
                         <div class="redpill-image-container">
                             <div class="redpill-image">
                                 <img src="/imgs/placeholder-img.jpg" alt="A placeholder image">
                             </div>
-                            <div class="redpill-image-data-container">
-                                <p class="image-size">71 KB</p>
-                                <p class="image-type">JPG</p>
-                                <p class="image-res">300x300</p>
+                        </div>
+                        <div class="redpill-info">
+                            <div class="redpill-info-left">
+                                <h3 class="redpill-info-title">Title of this redpill</h3>
+                                <p class="redpill-info-author">by <span class="author">Anonymous</span></p>
+                                <p class="redpill-info-country"><span class="country">USA</span></p>
+                                <p class="redpill-info-upvotes">is <span class="redpilled">0 redpilled</span></p>
+                            </div>
+                            <div class="redpill-info-right">
+                                <p class="redpill-info-date">Wed 30th Sep 2023 16:19:01</p>
+                                <p class="redpill-info-id">No. 22785073</p>
                             </div>
                         </div>
                         <div class="redpill-message">
