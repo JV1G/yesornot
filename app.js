@@ -276,7 +276,8 @@ app.post('/pill-comment', upload.single('pill-comment-image'), async (req, res) 
             { new: true }
         );
         if(updatedPill) {
-            res.json({ message: 'Comment added successfully', pill: updatedPill });
+            const pill = await models.Pill.findOne({ pillId: pillId });
+            res.render('pill', { pill: pill, formatDate: formatDate });
         } else {
             res.status(404).json({ message: 'Pill not found' });
         }

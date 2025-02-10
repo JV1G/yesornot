@@ -9,6 +9,30 @@ const pills = document.querySelectorAll('.redpill-content');
 
 const searchInput = document.querySelector('.search-input');
 
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to all buttons with class info-long-message-btn
+    let buttons = document.querySelectorAll('.info-long-message-btn');
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            // Find the closest parent with class 'redpill-message'
+            let messageDiv = event.target.closest('.redpill-message');
+            if (messageDiv) {
+                // Hide the shortened message and show the full message
+                let shortMessage = messageDiv.querySelector('.short-message');
+                let fullMessage = messageDiv.querySelector('.full-message');
+
+                if (shortMessage && fullMessage) {
+                    shortMessage.style.display = 'none';
+                    fullMessage.style.display = 'block';
+                }
+            }
+        });
+    });
+});
+
 /* Refresh page */
 function refreshPage() {
     location.reload();

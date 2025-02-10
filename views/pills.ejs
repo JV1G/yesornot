@@ -23,7 +23,6 @@
                             <li><a href="http://localhost:3000/pill-it"><i class="fa-solid fa-pills"></i>Pill It</a></li>
                             <li><a href="http://localhost:3000/pills"><i class="fa-solid fa-fire"></i>Browse Redpills</a></li>
                             <li><a href="http://localhost:3000/help"><i class="fa-solid fa-question"></i>Help</a></li>
-                            <li><a href="#"><i class="fa-regular fa-address-book"></i>Contact</a></li>
                         </ul>
                     </nav>
                     <div class="header-buttons">
@@ -42,9 +41,8 @@
 
                 <div class="search">
                     <div class="options-container">
-                       
                         <div class="filter-buttons">
-                            <div class="filter"><i class="fa-solid fa-filter"></i></div>
+                            <div class="filter filter-btn"><i class="fa-solid fa-filter"></i></div>
                             <button onclick="window.location.href='http://localhost:3000/pills/redpilled'" class="filter-btn redpilled-filter redpilled" title="Show redpills"><span class="span-hide">Redpills </span><i class="fa-solid fa-pills"></i></button>
                             <button onclick="window.location.href='http://localhost:3000/pills/bluepilled'" class="filter-btn bluepilled-filter bluepilled" title="Show bluepills"><span class="span-hide">Bluepills </span><i class="fa-solid fa-pills"></i></button>
                             <button onclick="window.location.href='http://localhost:3000/pills/new'" class="filter-btn new-filter newpilled" title="Show new pills"><span class="span-hide">New </span><i class="fa-solid fa-pills"></i></button>
@@ -100,7 +98,24 @@
                                         </div>
                                     </div>
                                     <div class="redpill-message">
-                                        <p><%= pill.text %></p>
+                                        <div class="redpill-message">
+                                            <% if(pill.text.length > 660) { %>
+                                                <!-- Display shortened message -->
+                                                <div class="short-message" data-pill-id="<%= pill.pillId %>">
+                                                    <p><%= pill.text.substring(0,660).trim() %>...</p>
+                                                    <span class="info-long-message">The text is too long. Click <button class="info-long-message-btn" data-pill-id="<%= pill.pillId %>">here</button> to view the full text.</span>
+                                                </div>
+                                                <!-- Hide full message initially -->
+                                                <div class="full-message" style="display: none;">
+                                                    <p><%= pill.text %></p>
+                                                </div>
+                                            <% } else { %>
+                                                <!-- Display the full message as the text is short enough -->
+                                                <div class="full-message">
+                                                    <p><%= pill.text %></p>
+                                                </div>
+                                            <% } %> 
+                                        </div>
                                     </div>
                                     <div class="redpill-message-data">
                                         <div class="counter-container">
@@ -232,39 +247,34 @@
                 <div class="right-side">
                     <nav role="navigation" aria-label="Footer navigation" class="footer-navigation">
                         <div class="nav-column">
-                            <h4>Links</h4>
+                            <h4>Actions</h4>
                             <ul>
-                                <li><a href="#">Pill It</a></li>
-                                <li><a href="#">Browse Redpills</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="http://localhost:3000/pill-it">Pill It</a></li>
+                                <li><a href="http://localhost:3000/pills">Browse Redpills</a></li>
+                                <li><a href="http://localhost:3000/help">Help</a></li>
                             </ul>
                         </div>
                         <div class="nav-column">
-                            <h4>Links</h4>
+                            <h4>Educate Yourself</h4>
                             <ul>
-                                <li><a href="#">Pill It</a></li>
-                                <li><a href="#">Browse Redpills</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="http://localhost:3000/help/how">How</a></li>
+                                <li><a href="http://localhost:3000/help/rules">Rules</a></li>
                             </ul>
                         </div>
                         <div class="nav-column">
-                            <h4>Links</h4>
+                            <h4>Support</h4>
                             <ul>
-                                <li><a href="#">Pill It</a></li>
-                                <li><a href="#">Browse Redpills</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="http://localhost:3000/help/support">Paypal</a></li>
+                                <li><a href="http://localhost:3000/help/support">Bitcoin</a></li>
+                                <li><a href="http://localhost:3000/help/support">Ethereum</a></li>
                             </ul>
                         </div>
                         <div class="nav-column">
-                            <h4>Links</h4>
+                            <h4>Talk to Owner</h4>
                             <ul>
-                                <li><a href="#">Pill It</a></li>
-                                <li><a href="#">Browse Redpills</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="http://localhost:3000/help/idea">Idea</a></li>
+                                <li><a href="http://localhost:3000/help/bug">BUG / ISSUES</a></li>
+                                <li><a href="http://localhost:3000/help/other">Other</a></li>
                             </ul>
                         </div>
                     </nav>
